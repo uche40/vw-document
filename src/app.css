@@ -1,0 +1,195 @@
+/**
+ * @license Copyright (c) 2014-2020, CKSource - Frederico Knabben. All rights reserved.
+ * This file is licensed under the terms of the MIT License (see LICENSE.md).
+ */
+
+ :root {
+	--ck-sample-base-spacing: 2em;
+	--ck-sample-color-white: #fff;
+	--ck-sample-color-green: #279863;
+	--ck-sample-color-blue: #1a9aef;
+	--ck-sample-container-width: 100vw;
+	--ck-sample-sidebar-width: 350px;
+	--ck-sample-editor-min-height: 400px;
+}
+
+
+/********************************************************************************** 
+ * SAMPLE GENERIC STYLES (not related to CKEditor)
+ **********************************************************************************/
+/* >> Layout
+
+Here is list of element in view:
+
+body
+- main
+  - editor-area
+    - editor
+    - sidebar
+*/
+body 
+{
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+body>main 
+{
+	/* slef layout */
+	display: flex;
+	flex-direction: column;
+	max-width: var(--ck-sample-container-width);
+	/* TO parrent */
+	flex-grow: 1;
+	height: 100%;
+	overflow: hidden;
+}
+
+body>main>#editor-area 
+{
+	/* slef layout */
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	/* TO parrent */
+	flex-grow: 1;
+}
+
+body>main>#editor-area>#editor,
+body>main>#editor-area>#sidebar
+{
+	display: block;
+}
+
+body>main>#editor-area>#editor
+{
+	flex-grow: 1;
+}
+
+
+#editor-area > .ck.ck-reset.ck-editor.ck-rounded-corners
+{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	max-width: 100vw;
+}
+
+#editor-area > .ck.ck-reset.ck-editor.ck-rounded-corners > .ck.ck-editor__main
+{
+	flex-grow: 1;
+	overflow: auto;
+}
+
+/* >> View
+- font
+- color
+- padding
+- margin
+*/
+
+
+body, html {
+	padding: 0;
+	margin: 0;
+
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+body * {
+	box-sizing: border-box;
+}
+
+
+
+/********************************************************************************** 
+ * COMMENTS & TRACK CHANGES FEATURE
+ **********************************************************************************/
+#sidebar {
+	padding: 0 15px;
+	position: relative;
+	min-width: var(--ck-sample-sidebar-width);
+	max-width: var(--ck-sample-sidebar-width);
+	font-size: 20px;
+	border: 1px solid hsl(0, 0%, 77%);
+	background: hsl(0, 0%, 98%);
+	border-left: 0;
+	overflow: hidden;
+	min-height: 100%;
+	flex-grow: 1;
+}
+
+/* Do not inherit styles related to the editable editor content. See line 25.*/
+#sidebar .ck-content[role='textbox'],
+.ck.ck-annotation-wrapper .ck-content[role='textbox'] {
+	min-height: unset;
+	width: unset;
+	padding: 0;
+	background: transparent;
+}
+
+#sidebar.narrow {
+	min-width: 60px;
+	flex-grow: 0;
+}
+
+#sidebar.hidden {
+	display: none !important;
+}
+
+#sidebar-display-toggle {
+	position: absolute;
+	z-index: 1;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	left: 15px;
+	top: 30px;
+	border: 0;
+	padding: 0;
+	color: hsl( 0, 0%, 50% );
+	transition: 250ms ease color;
+	background-color: transparent;
+}
+
+#sidebar-display-toggle:hover {
+	color: hsl( 0, 0%, 30% );
+	cursor: pointer;
+}
+
+#sidebar-display-toggle:focus,
+#sidebar-display-toggle:active {
+	outline: none;
+	border: 1px solid #a9d29d;
+}
+
+#sidebar-display-toggle svg {
+	fill: currentColor;
+}
+
+/********************************************************************************** 
+ * RWD
+ **********************************************************************************/
+@media screen and ( max-width: 800px ) {
+	:root {
+		--ck-sample-base-spacing: 1em;
+	}
+
+	header h1 {
+		width: 100%;
+	}
+
+	header h1 img {
+		height: 40px;
+	}
+
+	header nav ul {
+		text-align: right;
+	}
+
+}

@@ -11,6 +11,7 @@ var _configs = {
 	development: require(__dirname + '/config/webpack/environments/development')
 };
 
+
 var _load = function() {
 	var ENV = process.env.NODE_ENV
 		? process.env.NODE_ENV
@@ -26,3 +27,4 @@ var _load = function() {
 };
 
 module.exports = _load();
+

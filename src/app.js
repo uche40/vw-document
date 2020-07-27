@@ -64,6 +64,7 @@ import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 Application:
  */
 import './app.css';
+//import './app.html';
 
 const EDITOR_SELECTOR = '#editor';
 const editorPlugins = [

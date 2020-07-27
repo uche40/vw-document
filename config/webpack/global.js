@@ -59,23 +59,15 @@ function locadConfigs(_path) {
 		// modules resolvers
 		module: {
 			rules: [{
-				// Or /ckeditor5-[^/]+\/theme\/icons\/[^/]+\.svg$/ if you want to limit this loader
-				// to CKEditor 5 icons only.
 				test: /ckeditor5-[^/]+\/theme\/icons\/[^/]+\.svg$/,
 				use: ['raw-loader']
 			}, {
 				test: /\.html$/,
 				use: [
 					{
-						loader: 'ngtemplate-loader',
-						options: {
-							relativeTo: path.join(_path, '/src')
-						}
-					},
-					{
 						loader: 'html-loader',
 						options: {
-							attrs: ['img:src', 'img:data-src']
+							minimize: false,
 						}
 					}
 				]
@@ -195,8 +187,25 @@ function locadConfigs(_path) {
 			//				allChunks: true
 			//			}),
 			new HtmlWebpackPlugin({
+				title: 'ViraWeb123 Document',
 				filename: 'index.html',
-				template: path.join(_path, 'src', 'tpl-index.ejs')
+				template: path.join(_path, 'src', 'app.html'),
+				inject: true,
+				scriptLoading: 'defer',
+				favicon: path.join(_path, 'src', 'favicon.png'),
+				meta: [{
+					'charset': 'utf-8',
+				}, {
+					'name': 'description',
+					'content': 'A document editor',
+				}, {
+					'name': 'viewport',
+					'content': 'width=device-width',
+					'initial-scale': 1.0,
+					'maximum-scale': 1.0,
+					'user-scalable': 'no'
+				}],
+				minify: true
 			})
 		]
 	};

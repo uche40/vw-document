@@ -69,6 +69,11 @@ body>main>#editor-area>#editor
 	flex-grow: 1;
 }
 
+body>main>#editor-area>#sidebar
+{
+	display: none;
+}
+
 
 #editor-area > .ck.ck-reset.ck-editor.ck-rounded-corners
 {

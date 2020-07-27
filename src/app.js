@@ -63,68 +63,10 @@ import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 /*
 Application:
  */
-import './app.css';
+//import './app.css';
 //import './app.html';
 
 const EDITOR_SELECTOR = '#editor';
-const editorPlugins = [
-	Alignment,
-	Autoformat,
-	Autosave,
-	BlockQuote,
-	Bold,
-	CKFinder,
-	CKFinderUploadAdapter,
-	Code,
-	CodeBlock,
-	//			Comments,
-	Essentials,
-	ExportToPDF,
-	FontBackgroundColor,
-	FontColor,
-	FontFamily,
-	FontSize,
-	Heading,
-	Highlight,
-	HorizontalLine,
-	Image,
-	ImageCaption,
-	ImageResize,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	Indent,
-	IndentBlock,
-	Italic,
-	Link,
-	List,
-	MediaEmbed,
-	MediaEmbedToolbar,
-	Mention,
-	PageBreak,
-	Paragraph,
-	PasteFromOffice,
-	RemoveFormat,
-	RestrictedEditingMode,
-	SpecialCharacters,
-	SpecialCharactersArrows,
-	SpecialCharactersCurrency,
-	SpecialCharactersEssentials,
-	SpecialCharactersLatin,
-	SpecialCharactersMathematical,
-	SpecialCharactersText,
-	Strikethrough,
-	Subscript,
-	Superscript,
-	Table,
-	TableCellProperties,
-	TableProperties,
-	TableToolbar,
-	TextTransformation,
-	Title,
-	TodoList,
-	WordCount
-];
 
 
 let documentValue = '';
@@ -135,6 +77,9 @@ loadParameters();
 loadEditor();
 
 function loadEditorData() {
+	if (documentLoading) {
+		return;
+	}
 	documentLoading = true;
 	if (!documentUrl) {
 		return;
@@ -159,17 +104,75 @@ function loadParameters() {
 
 function loadEditor() {
 	ClassicEditor.create(document.querySelector(EDITOR_SELECTOR), {
-		plugins: editorPlugins,
-		isReadOnly: false,
-		autosave: {
-			waitingTime: 5000, // in ms
-			save(editor) {
-				if (documentLoading) {
-					return;
-				}
-				documentValue = editor.getData();
-			}
-		},
+		plugins: [
+			Alignment,
+			Autoformat,
+			Autosave,
+			BlockQuote,
+			Bold,
+			CKFinder,
+			CKFinderUploadAdapter,
+			Code,
+			CodeBlock,
+			//			Comments,
+			Essentials,
+			ExportToPDF,
+			FontBackgroundColor,
+			FontColor,
+			FontFamily,
+			FontSize,
+			Heading,
+			Highlight,
+			HorizontalLine,
+			Image,
+			ImageCaption,
+			ImageResize,
+			ImageStyle,
+			ImageToolbar,
+			ImageUpload,
+			Indent,
+			IndentBlock,
+			Italic,
+			Link,
+			List,
+			MediaEmbed,
+			MediaEmbedToolbar,
+			Mention,
+			PageBreak,
+			Paragraph,
+			PasteFromOffice,
+			RemoveFormat,
+			RestrictedEditingMode,
+			SpecialCharacters,
+			SpecialCharactersArrows,
+			SpecialCharactersCurrency,
+			SpecialCharactersEssentials,
+			SpecialCharactersLatin,
+			SpecialCharactersMathematical,
+			SpecialCharactersText,
+			Strikethrough,
+			Subscript,
+			Superscript,
+			Table,
+			TableCellProperties,
+			TableProperties,
+			TableToolbar,
+			TextTransformation,
+			Title,
+			TodoList,
+			WordCount
+		],
+		language: 'en',
+		//		autosave: {
+		//			waitingTime: 5000, // in ms
+		//			save(/*editor*/) {
+		//				if (documentLoading) {
+		//					return;
+		//				}
+		//				//documentValue = editor.getData();
+		//				return true;
+		//			}
+		//		},
 		toolbar: [
 			'heading',
 			'|',
@@ -185,14 +188,14 @@ function loadEditor() {
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
-			'mediaEmbed',
+			//			'mediaEmbed',
 			'undo',
 			'redo',
 			'fontColor',
 			'CKFinder',
 			'alignment',
 			'code',
-			'comment',
+			//			'comment',
 			'codeBlock',
 			'fontSize',
 			'fontBackgroundColor',
@@ -201,7 +204,7 @@ function loadEditor() {
 			'highlight',
 			//				'MathType',
 			'horizontalLine',
-			'ChemType',
+			//			'ChemType',
 			'pageBreak',
 			'removeFormat',
 			'restrictedEditing',
@@ -209,13 +212,17 @@ function loadEditor() {
 			'superscript',
 			'subscript',
 			'strikethrough',
-			'todoList'
+			'todoList',
 		],
-		language: 'en',
 		image: {
 			toolbar: [
 				'imageTextAlternative',
 				'imageStyle:full',
+				'imageStyle:side'
+			]
+		},
+		mediaEmbed: {
+			toolbar: [
 				'imageStyle:side'
 			]
 		},

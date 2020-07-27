@@ -89,6 +89,12 @@ body>main>#editor-area>#sidebar
 	overflow: auto;
 }
 
+/* Because of sidebar `position: relative`, Edge is overriding the outline of a focused editor. */
+.ck.ck-editor__editable {
+	position: relative;
+	z-index: 10;
+}
+
 /* >> View
 - font
 - color

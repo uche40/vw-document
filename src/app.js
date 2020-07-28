@@ -59,6 +59,10 @@ import Title from '@ckeditor/ckeditor5-heading/src/title.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 
+/*
+Local applications
+*/
+import InsertImage from './ckeditor5-viraweb123/InsertImage';
 
 /*
 Application:
@@ -160,7 +164,10 @@ function loadEditor() {
 			TextTransformation,
 			Title,
 			TodoList,
-			WordCount
+			WordCount,
+			
+			//>> local plugins
+			InsertImage,
 		],
 		language: 'en',
 		//		autosave: {
@@ -174,6 +181,7 @@ function loadEditor() {
 		//			}
 		//		},
 		toolbar: [
+			'insertImage',
 			'heading',
 			'|',
 			'bold',

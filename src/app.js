@@ -1,64 +1,78 @@
 'use strict';
 
-import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
-import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
-import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
-import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
-import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
-import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
-import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
-//import Comments from '@ckeditor/ckeditor5-comments/src/comments.js';
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
-import ExportToPDF from '@ckeditor/ckeditor5-export-pdf/src/exportpdf.js';
-import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
-import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
-import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
-import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
-import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
-import Image from '@ckeditor/ckeditor5-image/src/image.js';
-import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
-import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
-import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
-import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
-import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
-import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
-import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
-import Link from '@ckeditor/ckeditor5-link/src/link.js';
-import List from '@ckeditor/ckeditor5-list/src/list.js';
-import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
-import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
-import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
-import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
-import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
+import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+
+
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+//import Comments from '@ckeditor/ckeditor5-comments/src/comments';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
+import ExportToPDF from '@ckeditor/ckeditor5-export-pdf/src/exportpdf';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+
+//>> Image
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+import ImageTextAlternative from '@ckeditor/ckeditor5-image/src/imagetextalternative';
+import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+
+
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+
+//>> Links
+import Link from '@ckeditor/ckeditor5-link/src/link';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
+
+import List from '@ckeditor/ckeditor5-list/src/list';
+import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
+import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar';
+import Mention from '@ckeditor/ckeditor5-mention/src/mention';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js';
-import RestrictedEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/restrictededitingmode.js';
-import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters.js';
-import SpecialCharactersArrows from '@ckeditor/ckeditor5-special-characters/src/specialcharactersarrows.js';
-import SpecialCharactersCurrency from '@ckeditor/ckeditor5-special-characters/src/specialcharacterscurrency.js';
-import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials.js';
-import SpecialCharactersLatin from '@ckeditor/ckeditor5-special-characters/src/specialcharacterslatin.js';
-import SpecialCharactersMathematical from '@ckeditor/ckeditor5-special-characters/src/specialcharactersmathematical.js';
-import SpecialCharactersText from '@ckeditor/ckeditor5-special-characters/src/specialcharacterstext.js';
-import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
-import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
-import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript.js';
-import Table from '@ckeditor/ckeditor5-table/src/table.js';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+//import RestrictedEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/restrictededitingmode';
+import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+import SpecialCharactersArrows from '@ckeditor/ckeditor5-special-characters/src/specialcharactersarrows';
+import SpecialCharactersCurrency from '@ckeditor/ckeditor5-special-characters/src/specialcharacterscurrency';
+import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+import SpecialCharactersLatin from '@ckeditor/ckeditor5-special-characters/src/specialcharacterslatin';
+import SpecialCharactersMathematical from '@ckeditor/ckeditor5-special-characters/src/specialcharactersmathematical';
+import SpecialCharactersText from '@ckeditor/ckeditor5-special-characters/src/specialcharacterstext';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
-import Title from '@ckeditor/ckeditor5-heading/src/title.js';
+import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Title from '@ckeditor/ckeditor5-heading/src/title';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
-import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
+import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
 
+/*
+Local applications
+*/
+import InsertImage from './ckeditor5-viraweb123/InsertImage';
+import CmsFileUploaderAdapter from './ckeditor5-viraweb123/cmsFileUploaderAdapter';
 
 /*
 Application:
@@ -102,6 +116,25 @@ function loadParameters() {
 	documentUrl = urlParams.get('url');
 }
 
+function saveDocument(editor) {
+	if (documentLoading) {
+		return documentLoading;
+	}
+	documentValue = editor.getData();
+	return documentLoading = fetch(documentUrl, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'text/html'
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: editor.getData() // body data type must match "Content-Type" header
+	}).then(() => documentLoading = false);
+}
+
 function loadEditor() {
 	ClassicEditor.create(document.querySelector(EDITOR_SELECTOR), {
 		plugins: [
@@ -110,8 +143,6 @@ function loadEditor() {
 			Autosave,
 			BlockQuote,
 			Bold,
-			CKFinder,
-			CKFinderUploadAdapter,
 			Code,
 			CodeBlock,
 			//			Comments,
@@ -124,16 +155,23 @@ function loadEditor() {
 			Heading,
 			Highlight,
 			HorizontalLine,
+			//> Image
 			Image,
 			ImageCaption,
 			ImageResize,
 			ImageStyle,
+			ImageTextAlternative,
 			ImageToolbar,
 			ImageUpload,
+
 			Indent,
 			IndentBlock,
 			Italic,
+
+			//>> Link
 			Link,
+			LinkImage,
+
 			List,
 			MediaEmbed,
 			MediaEmbedToolbar,
@@ -142,7 +180,7 @@ function loadEditor() {
 			Paragraph,
 			PasteFromOffice,
 			RemoveFormat,
-			RestrictedEditingMode,
+			//			RestrictedEditingMode,
 			SpecialCharacters,
 			SpecialCharactersArrows,
 			SpecialCharactersCurrency,
@@ -160,19 +198,19 @@ function loadEditor() {
 			TextTransformation,
 			Title,
 			TodoList,
-			WordCount
+			WordCount,
+
+			//>> local plugins
+			InsertImage,
+		],
+		extraPlugins: [
+			CmsFileUploaderAdapter,
 		],
 		language: 'en',
-		//		autosave: {
-		//			waitingTime: 5000, // in ms
-		//			save(/*editor*/) {
-		//				if (documentLoading) {
-		//					return;
-		//				}
-		//				//documentValue = editor.getData();
-		//				return true;
-		//			}
-		//		},
+		autosave: {
+			waitingTime: 5000, // in ms
+			save: editor => saveDocument(editor)
+		},
 		toolbar: [
 			'heading',
 			'|',
@@ -184,31 +222,36 @@ function loadEditor() {
 			'|',
 			'indent',
 			'outdent',
+
+			//>> Insert media
 			'|',
-			'imageUpload',
+			'insertImage',
+			//			'imageUpload',
 			'blockQuote',
 			'insertTable',
 			//			'mediaEmbed',
+			'code',
+			'codeBlock',
+			'horizontalLine',
+			//			'ChemType',
+			'pageBreak',
+			'specialCharacters',
+
+			//>> Editor
+			'|',
 			'undo',
 			'redo',
 			'fontColor',
-			'CKFinder',
 			'alignment',
-			'code',
 			//			'comment',
-			'codeBlock',
 			'fontSize',
 			'fontBackgroundColor',
 			'exportPdf',
 			'fontFamily',
 			'highlight',
 			//				'MathType',
-			'horizontalLine',
-			//			'ChemType',
-			'pageBreak',
 			'removeFormat',
-			'restrictedEditing',
-			'specialCharacters',
+			//			'restrictedEditing',
 			'superscript',
 			'subscript',
 			'strikethrough',

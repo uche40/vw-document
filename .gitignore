@@ -7,3 +7,4 @@ true!ng-annotate/
 dist/
 /package-lock.json
 /yarn.lock
+/vw-document.zip

@@ -82,7 +82,7 @@
 		"karma": "^5.1.1",
 		"karma-chrome-launcher": "^3",
 		"karma-jasmine": "^3",
-		"karma-sourcemap-loader": "^0.3",
+		"karma-sourcemap-loader": "^0.3.8",
 		"karma-webpack": "^4",
 		"loader-utils": "^2",
 		"lodash": "^4",

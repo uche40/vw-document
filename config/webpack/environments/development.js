@@ -12,7 +12,7 @@ module.exports = function(_path) {
 				'/api': {
 					'changeOrigin': true,
 					'cookieDomainRewrite': 'localhost',
-					'target': 'http://test.viraweb123.ir'
+					'target': 'http://viraweb123.ir'
 				}
 			}
 		},

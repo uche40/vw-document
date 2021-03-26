@@ -8,3 +8,4 @@ dist/
 /package-lock.json
 /yarn.lock
 /vw-document.zip
+/yarn-error.log

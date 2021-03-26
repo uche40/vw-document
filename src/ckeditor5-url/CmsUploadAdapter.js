@@ -1,7 +1,7 @@
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import UUID from './uuid.js';
 
-class CmsUploadAdapter {
+import UUID from '../uuid.js';
+
+export default class CmsUploadAdapter {
 	constructor(loader) {
 		// The file loader instance to use during the upload. It sounds scary but do not
 		// worry — the loader will be passed into the adapter later on in this guide.
@@ -107,11 +107,3 @@ class CmsUploadAdapter {
 
 
 
-
-export default class CmsFileUploaderAdapter extends Plugin {
-	init() {
-		const editor = this.editor;
-		editor.plugins.get('FileRepository').createUploadAdapter = loader =>
-			new CmsUploadAdapter(loader);
-	}
-}

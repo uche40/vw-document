@@ -8,7 +8,7 @@ import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classicedi
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
+//import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 
@@ -16,8 +16,8 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 //import Comments from '@ckeditor/ckeditor5-comments/src/comments';
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import ExportToPDF from '@ckeditor/ckeditor5-export-pdf/src/exportpdf';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials'; // clipboard, Enter, select all, ShiftEnter, typing and undo 
+//import ExportToPDF from '@ckeditor/ckeditor5-export-pdf/src/exportpdf';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
@@ -74,27 +74,20 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
 
-/*
-Local applications
-*/
-import InsertImage from './ckeditor5-viraweb123/InsertImage';
-import CmsFileUploaderAdapter from './ckeditor5-viraweb123/cmsFileUploaderAdapter';
-
-
 export default class ClassicEditor extends ClassicEditorBase { }
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Alignment,
 	Autoformat,
-	Autosave,
+	//	Autosave,
 	BlockQuote,
 	Bold,
 	Code,
 	CodeBlock,
 	//			Comments,
 	Essentials,
-	ExportToPDF,
+	//	ExportToPDF,
 	FontBackgroundColor,
 	FontColor,
 	FontFamily,
@@ -102,7 +95,7 @@ ClassicEditor.builtinPlugins = [
 	Heading,
 	Highlight,
 	HorizontalLine,
-	//> Image
+	//	//> Image
 	Image,
 	ImageCaption,
 	ImageResize,
@@ -147,20 +140,34 @@ ClassicEditor.builtinPlugins = [
 	TextTransformation,
 	TodoList,
 	WordCount,
-
-	//>> local plugins
-	InsertImage,
-	CmsFileUploaderAdapter,
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			'saveConent',
+			'deleteContent',
+			'undo',
+			'redo',
+			// pring
+			'exportPdf',
+			// paint format
+			'|',
 			'heading',
 			'|',
+			// zome
+			// '|',
+			// >> font
+			'fontFamily',
+			'fontSize',
 			'bold',
 			'italic',
+			'fontColor',
+			'highlight',
+			'fontBackgroundColor',
+
+			'|',
 			'link',
 			'bulletedList',
 			'numberedList',
@@ -184,16 +191,8 @@ ClassicEditor.defaultConfig = {
 
 			//>> Editor
 			'|',
-			'undo',
-			'redo',
-			'fontColor',
 			'alignment',
 			//			'comment',
-			'fontSize',
-			'fontBackgroundColor',
-			'exportPdf',
-			'fontFamily',
-			'highlight',
 			//				'MathType',
 			'removeFormat',
 			//			'restrictedEditing',
@@ -257,4 +256,14 @@ ClassicEditor.defaultConfig = {
 	sidebar: {
 		container: document.querySelector('.sidebar')
 	},
+	heading: {
+		options: [
+			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+			{ model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' }
+		]
+	}
 };

@@ -6,33 +6,31 @@ const MIMETYPE_HTML = 'text/html';
 
 
 
+/**
+Teh original value of the document.
+	
+It may pass or loaded from the URL. It will be changed if the editor is saved successfully.
+ */
+//	value = '';
 
+/**
+The URL of the document.
+	
+By passing the URL, you can edit the content directly. we assume the POST is used to
+save and the GET is used to download the content.
+ */
+//	url;
+
+/**
+User may send the mimetype of the document. The default mime type is HTML and is fully
+supported by the editor.
+	
+For example if your refrence document is a WEBURGER document you may send the mime type
+and the editor try to keep the content valid.
+ */
+//	documentMimetype;
+//	documentLoading = false;
 export default class UrlResourceInputEditor extends CkEditorInput {
-
-	/**
-	Teh original value of the document.
-	
-	It may pass or loaded from the URL. It will be changed if the editor is saved successfully.
-	 */
-	//	value = '';
-
-	/**
-	The URL of the document.
-	
-	By passing the URL, you can edit the content directly. we assume the POST is used to
-	save and the GET is used to download the content.
-	 */
-	//	url;
-
-	/**
-	User may send the mimetype of the document. The default mime type is HTML and is fully
-	supported by the editor.
-	
-	For example if your refrence document is a WEBURGER document you may send the mime type
-	and the editor try to keep the content valid.
-	 */
-	//	documentMimetype;
-	//	documentLoading = false;
 
 
 	/**
